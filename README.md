@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mini-Storefront
 
-## Getting Started
+React + Next.js e-commerce app with product filtering and shopping cart.
 
-First, run the development server:
-
-```bash
+## Setup
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Open http://localhost:3000
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Requirements Checklist
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Components & JSX
+- Uses proper JSX syntax
+- Modular reusable components
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Lists & Keys
+- ProductList maps products array
+- Each product has unique key (product.id)
 
-## Learn More
+### Props & Callbacks
+- Parent passes data down via props
+- Children pass events up via callbacks
 
-To learn more about Next.js, take a look at the following resources:
+### State
+- Uses useState for products, loading, error, filters, and cart
+- Immutable state updates with spread operator
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Controlled Inputs
+- CategoryFilter (select dropdown)
+- PriceFilter (range slider)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Conditional Rendering
+- Loading state
+- Error state
+- Empty state
+- Out of stock buttons disabled
 
-## Deploy on Vercel
+### Effects & Cleanup
+- Fetches products on mount
+- Interval updates stock every 5 seconds
+- Cleanup clears interval on unmount
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Lifting State
+- All state lives in Catalog.jsx
+- Passed down to child components
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Client vs Server Components
+- page.js is Server Component
+- Interactive components use 'use client'
+
+### API Routes
+- /api/products returns 12 products
+- 3 categories (Electronics, Furniture, Clothing)
+
+### Tailwind UI
+- Responsive grid layout
+- Styled cards and buttons
+- Sticky filters and cart
